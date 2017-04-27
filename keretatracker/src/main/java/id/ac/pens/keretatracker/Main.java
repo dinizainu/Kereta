@@ -1,13 +1,10 @@
 package id.ac.pens.keretatracker;
-
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,8 +13,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.pixplicity.easyprefs.library.Prefs;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -79,6 +74,9 @@ public class Main extends AppCompatActivity {
         });
         dialog=result.create();
         dialog.show();
+        t_kereta.setText(kereta.getText().toString());
+        t_tujuan.setText(tujuan.getText().toString());
+        t_waktu.setText(kedatangan.getText().toString());
     }
 
 
@@ -98,15 +96,18 @@ public class Main extends AppCompatActivity {
             pilihan.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    new Prefs.Builder()
+                   /* new Prefs.Builder()
                             .setContext(getApplicationContext())
                             .setMode(ContextWrapper.MODE_PRIVATE)
                             .setPrefsName(getPackageName())
                             .setUseDefaultSharedPreference(true)
                             .build();
-                    Prefs.putString("iduser","");
-                    startActivity(new Intent(Main.this, Login.class));
-                    finish();
+                    Prefs.putString("iduser","");*/
+
+                    /*startActivity(new Intent(Main.this, Login.class));
+                    finish();*/
+                    Intent a = new Intent(Main.this, Login.class);
+                    startActivity(a);
                 }
             });
             pilihan.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
